@@ -66,9 +66,25 @@ class Hello {
         //mySerial.ReadTimeout = 400;
 
         Application.Init();
+
+        string[] ports = SerialPort.GetPortNames();
+        Entry portBox = new Entry();
+        ListStore store = new ListStore(typeof(string));
+        
+        store.AppendValues(ports);
+
+        portBox.Completion = new EntryCompletion ();
+        portBox.Completion.Model = store;
+        portBox.Completion.TextColumn = 0;
+
         MyWindow w = new MyWindow();
         VBox v = new VBox();
         HBox h = new HBox();
+
+        h.Add(portBox);
+        v.Add(h);
+
+        h = new HBox();
 
         h.Add(new Label());
 
