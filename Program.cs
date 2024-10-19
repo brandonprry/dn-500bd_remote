@@ -15,6 +15,7 @@ class MyWindow : Gtk.Window {
 
 class Hello {
     private static SerialPort mySerial;
+    static Entry portBox;
 
     public string ReadData()
     {
@@ -54,6 +55,18 @@ class Hello {
         return;
     }
 
+     static void on_connectclick(object? sender, EventArgs args) {
+        if (mySerial != null)
+            if (mySerial.IsOpen)
+                mySerial.Close();
+ 
+        mySerial = new SerialPort(portBox.Text, 9600);
+        mySerial.Open();
+        mySerial.ReadTimeout = 400;
+
+        return;
+    }
+
         static void on_entclick(object? sender, EventArgs args) {
         Console.WriteLine("enter");
         return;
@@ -61,16 +74,13 @@ class Hello {
 
     static void Main() {
 
-        //mySerial = new SerialPort("/dev/ttyS0", 9600);
-        //mySerial.Open();
-        //mySerial.ReadTimeout = 400;
 
         Application.Init();
 
         string[] ports = SerialPort.GetPortNames();
-        Entry portBox = new Entry();
+        portBox = new Entry();
         ListStore store = new ListStore(typeof(string));
-        
+
         store.AppendValues(ports);
 
         portBox.Completion = new EntryCompletion ();
@@ -82,6 +92,15 @@ class Hello {
         HBox h = new HBox();
 
         h.Add(portBox);
+        v.Add(h);
+
+        h = new HBox();
+
+        Button connect = new Button();
+        connect.Label = "Connect";
+        connect.Clicked += on_connectclick;
+
+        h.Add(connect);
         v.Add(h);
 
         h = new HBox();
