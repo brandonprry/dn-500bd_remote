@@ -17,7 +17,7 @@ class Hello {
     private static SerialPort mySerial;
     static Entry portBox;
 
-    public string ReadData()
+    static string ReadData()
     {
         byte tmpByte;
         string rxString = "";
@@ -32,25 +32,41 @@ class Hello {
         return rxString;
     }
  
-    public bool SendData(string Data)
+    static bool SendData(string Data)
     {  
         mySerial.Write(Data);
         return true;
     }
+
+     static void on_homeclick(object? sender, EventArgs args) {
+        SendData("@0PCHM\r");
+         //Console.WriteLine(ReadData());
+        Console.WriteLine("up");
+        return;
+    }
+
     static void on_upclick(object? sender, EventArgs args) {
+	SendData("@0PCCUSR3\r");
+	//Console.WriteLine(ReadData());
         Console.WriteLine("up");
         return;
     }
 
         static void on_dnclick(object? sender, EventArgs args) {
+		 SendData("@0PCCUSR4\r");        //Console.WriteLine(ReadData());
+
         Console.WriteLine("down");
         return;
     }
         static void on_lfclick(object? sender, EventArgs args) {
+		 SendData("@0PCCUSR1\r");        //Console.WriteLine(ReadData());
+
         Console.WriteLine("left");
         return;
     }
         static void on_rtclick(object? sender, EventArgs args) {
+		 SendData("@0PCCUSR2\r");        //Console.WriteLine(ReadData());
+
         Console.WriteLine("right");
         return;
     }
@@ -60,7 +76,7 @@ class Hello {
             if (mySerial.IsOpen)
                 mySerial.Close();
  
-        mySerial = new SerialPort(portBox.Text, 9600);
+        mySerial = new SerialPort(portBox.Text, 115200);
         mySerial.Open();
         mySerial.ReadTimeout = 400;
 
@@ -68,6 +84,7 @@ class Hello {
     }
 
         static void on_entclick(object? sender, EventArgs args) {
+		SendData("@0PCENTR\r");
         Console.WriteLine("enter");
         return;
     }
@@ -146,6 +163,16 @@ class Hello {
         h.Add(new Label());
        
         v.Add(h);
+
+	h = new HBox();
+
+        Button home = new Button();
+        home.Label = "Home";
+        home.Clicked += on_homeclick;
+
+	h.Add(home);
+	v.Add(h);
+
        
         w.Add(v);
         w.ShowAll();

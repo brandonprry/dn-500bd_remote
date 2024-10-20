@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bperry/projects/dn-500bd/dn-500bd.csproj": {}
+    "/home/bperry/tmp/dn-500bd_remote/dn-500bd.csproj": {}
   },
   "projects": {
-    "/Users/bperry/projects/dn-500bd/dn-500bd.csproj": {
+    "/home/bperry/tmp/dn-500bd_remote/dn-500bd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bperry/projects/dn-500bd/dn-500bd.csproj",
+        "projectUniqueName": "/home/bperry/tmp/dn-500bd_remote/dn-500bd.csproj",
         "projectName": "dn-500bd",
-        "projectPath": "/Users/bperry/projects/dn-500bd/dn-500bd.csproj",
-        "packagesPath": "/Users/bperry/.nuget/packages/",
-        "outputPath": "/Users/bperry/projects/dn-500bd/obj/",
+        "projectPath": "/home/bperry/tmp/dn-500bd_remote/dn-500bd.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/home/bperry/tmp/dn-500bd_remote/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/bperry/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/252/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
