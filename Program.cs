@@ -94,15 +94,15 @@ class Hello {
 
         Application.Init();
 
-        string[] ports = SerialPort.GetPortNames();
+//        string[] ports = SerialPort.GetPortNames();
         portBox = new Entry();
-        ListStore store = new ListStore(typeof(string));
+//        ListStore store = new ListStore(typeof(string));
 
-        store.AppendValues(ports);
+//        store.AppendValues(ports);
 
-        portBox.Completion = new EntryCompletion ();
-        portBox.Completion.Model = store;
-        portBox.Completion.TextColumn = 0;
+    //    portBox.Completion = new EntryCompletion ();
+  //      portBox.Completion.Model = store;
+      //  portBox.Completion.TextColumn = 0;
 
         MyWindow w = new MyWindow();
         VBox v = new VBox();
