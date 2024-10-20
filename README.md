@@ -8,3 +8,6 @@ dotnet build
 sudo dotnet run
 ```
 Type the USB device (/dev/ttyUSB0) into the text box and click connect. The buttons can now drive the player over the serial interface.
+
+![image](https://github.com/user-attachments/assets/2b691490-6dd2-4d99-94e2-442389ff2a86)
+
